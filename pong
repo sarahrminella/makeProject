@@ -18,9 +18,11 @@ var changeColor = 2;
 var red = 0;
 var blue = 0;
 var green = 0;
+
 function setup() {
   createCanvas(windowWidth,windowHeight);
 }
+
 function draw() {
   background(0);
   xBall += xBallChange;
