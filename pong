@@ -1,7 +1,6 @@
-//Project Name: final.js
+Name: final.js
 /*If your IDE supports linting see the .jshintrc document
 in the project root folder for linting options*/
-
 var xBall = 50;
 var yBall = 50;
 var diameter = 50;
@@ -15,16 +14,20 @@ var started = false;
 var score = 0;
 var createColor = 255;
 var changeColor = 2;
-var red = 0;
-var blue = 0;
-var green = 0;
-
+var red = 255;
+var blue = 255;
+var green = 255;
+var red1 = 255;
+var blue1 = 255;
+var green1 = 255;
 function setup() {
   createCanvas(windowWidth,windowHeight);
+  red = random(255);
+  blue = random(255);
+  green = random(255);
 }
-
 function draw() {
-  background(0);
+  background(red, green, blue);
   xBall += xBallChange;
   yBall += yBallChange;
   if (xBall < diameter/2 ||
@@ -38,12 +41,16 @@ function draw() {
   if ((xBall > xPaddle &&
       xBall < xPaddle + paddleWidth) &&
       (yBall + (diameter/2) >= yPaddle)) {
-  xBallChange *= -1.2;
   yBallChange *= -1.2;
   score++;
-  background(random(255), random (255), random (255));
+  red = random(255);
+  blue = random(255);
+  green = random(255);
+  red1 = random(255);
+  blue1 = random(255);
+  green1 = random(255);
 }
-if (yBall > windowHeight) {
+if (yBall > windowHeight - 75) {
   xBall = 150;
   yBall = 50;
   score = 0;
@@ -51,7 +58,6 @@ if (yBall > windowHeight) {
   yBallChange= 5;
 }
 if (yBall < diameter/2) {
-xBallChange *= -1;
 yBallChange *= -1;
 }
   if (!started) {
@@ -59,10 +65,10 @@ yBallChange *= -1;
     yPaddle = windowHeight - 100;
     started = true;
   }
-  fill (255, 0, 255);
+  fill (red1,green1,blue1);
   noStroke();
   ellipse (xBall, yBall, diameter, diameter);
-  fill(0, 255, 255);
+  fill(0, 0, 0);
   noStroke();
   rect(xPaddle, yPaddle, paddleWidth, paddleHeight);
   fill(0, 255, 255);
